@@ -1,7 +1,7 @@
 import pytest
 import tkinter as tk
 from unittest.mock import patch
-from src.ACEest_Fitness import FitnessTrackerApp
+from src.aceest_fitness import FitnessTrackerApp
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def test_add_workout_success(app):
     app.workout_entry.insert(0, "Push Ups")
     app.duration_entry.insert(0, "15")
 
-    with patch("src.ACEest_Fitness.messagebox.showinfo") as mock_info:
+    with patch("src.accest_fitness.messagebox.showinfo") as mock_info:
         app.add_workout()
 
     assert len(app.workouts) == 1
