@@ -1,8 +1,22 @@
+"""
+This module is a test project to save workouts and their duration
+"""
+
 import tkinter as tk
 from tkinter import messagebox
 
 class FitnessTrackerApp:
+    """
+    A Tkinter-based fitness tracker application.
+
+    This class manages the GUI and stores user workouts,
+    allowing users to add and track their fitness activities.
+    """
+
     def __init__(self, master):
+        """
+        Function block to initate the App
+        """
         self.master = master
         master.title("ACEestFitness and Gym")
 
@@ -27,6 +41,9 @@ class FitnessTrackerApp:
         self.view_button.grid(row=3, column=0, columnspan=2, pady=5)
 
     def add_workout(self):
+        """
+        Add a new workout to the tracker.
+        """
         workout = self.workout_entry.get()
         duration_str = self.duration_entry.get()
 
