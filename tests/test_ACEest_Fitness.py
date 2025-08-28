@@ -1,11 +1,17 @@
-import pytest
+"""
+Pytest file created to test acceest_fitness App
+"""
 import tkinter as tk
 from unittest.mock import patch
+import pytest
 from src.aceest_fitness import FitnessTrackerApp
 
 
 @pytest.fixture
-def app():
+def app(): # pylint: disable=redefined-outer-name
+    """
+
+    """
     root = tk.Tk()
     root.withdraw()
     app = FitnessTrackerApp(root)
@@ -13,7 +19,10 @@ def app():
     root.destroy()
 
 
-def test_add_workout_success(app):
+def test_add_workout_success(app): # pylint: disable=redefined-outer-name
+    """
+    Adding test data to check on the App taking inputs. 
+    """
     app.workout_entry.insert(0, "Push Ups")
     app.duration_entry.insert(0, "15")
 
