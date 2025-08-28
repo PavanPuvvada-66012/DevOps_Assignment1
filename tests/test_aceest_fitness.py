@@ -16,7 +16,7 @@ def app(): # pylint: disable=redefined-outer-name
     root = tk.Tk()
     root.withdraw()
     app = FitnessTrackerApp(root) # pylint: disable=redefined-outer-name
-    yield app   
+    yield app
     root.destroy()
 
 
