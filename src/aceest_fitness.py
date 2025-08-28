@@ -5,7 +5,9 @@ This module is a test project to save workouts and their duration
 import tkinter as tk
 from tkinter import messagebox
 
+
 class FitnessTrackerApp: # pylint: disable=too-many-instance-attributes
+
     """
     A Tkinter-based fitness tracker application.
 
@@ -64,6 +66,7 @@ class FitnessTrackerApp: # pylint: disable=too-many-instance-attributes
         """
         Method to see the logged workouts
         """
+
         if not self.workouts:
             messagebox.showinfo("Workouts", "No workouts logged yet.")
             return
