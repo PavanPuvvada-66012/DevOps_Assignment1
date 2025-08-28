@@ -3,7 +3,7 @@ Pytest file created to test acceest_fitness App
 """
 import tkinter as tk
 from unittest.mock import patch
-import pytest
+import pytest # pylint: disable=import-error
 from src.aceest_fitness import FitnessTrackerApp
 
 
