@@ -27,7 +27,7 @@ def test_add_workout_success(app): # pylint: disable=redefined-outer-name
     app.workout_entry.insert(0, "Push Ups")
     app.duration_entry.insert(0, "15")
 
-    with patch("src.accest_fitness.messagebox.showinfo") as mock_info:
+    with patch("src.aceest_fitness.messagebox.showinfo") as mock_info:
         app.add_workout()
 
     assert len(app.workouts) == 1
