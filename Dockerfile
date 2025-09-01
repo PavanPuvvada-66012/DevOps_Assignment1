@@ -15,4 +15,5 @@ COPY . .
 EXPOSE 5000
 
 # Run Flask app
+ENV PYTHONPATH=/app
 CMD ["python", "src/app.py"]
