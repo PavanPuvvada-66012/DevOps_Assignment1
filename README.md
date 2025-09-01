@@ -88,6 +88,23 @@ spuvva494@INSML-M0XYJPJ ~ % podman run --platform=linux/amd64 docker.io/pavanpuv
 ⚠️ No display detected. Skipping GUI startup.
 ```
 
+
+Steps to run the py tests locally , pytest will be installed as part of the requirements
+
+```
+spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % pytest -v
+=========================================================================== test session starts ===========================================================================
+platform darwin -- Python 3.10.11, pytest-8.4.1, pluggy-1.6.0 -- /Users/spuvva494/.pyenv/versions/3.10.11/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /Users/spuvva494/Documents/Development/DevOps_Assignment1
+collected 1 item
+
+tests/test_aceest_fitness.py::test_add_workout_success PASSED                                                                                                       [100%]
+
+============================================================================ 1 passed in 0.28s ============================================================================
+spuvva494@INSML-M0XYJPJ DevOps_Assignment1 %
+```
+
 ---
 
 
