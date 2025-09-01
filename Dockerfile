@@ -1,12 +1,18 @@
-# Example minimal Dockerfile
+# Use official Python image
 FROM python:3.11-slim
-# Install Tk dependencies
-RUN apt-get update && apt-get install -y \
-    python3-tk \
-    tk \
-    tcl \
-    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
 WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
 COPY . .
-RUN pip install -r requirements.txt
-CMD ["python", "src/aceest_fitness.py"]
+
+# Expose port
+EXPOSE 5000
+
+# Run Flask app
+CMD ["python", "app.py"]
