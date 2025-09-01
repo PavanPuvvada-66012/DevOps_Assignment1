@@ -1,7 +1,6 @@
 import pytest
 from src.app import app, tracker
 
-
 @pytest.fixture
 def client():
     """
