@@ -50,16 +50,19 @@ if the system doesn't support python then docker/pull image can be downloaded.
 
 podman pull pavanpuvvada66012/my-image:latest
 
-podman run -it --rm my-image:latest
+podman run --platform=linux/amd64 docker.io/pavanpuvvada66012/my-image:latest  #On Mac as mac is arm64 architecture
 
 
 ---
-## Features
+## ⚡ Features
 
 This project runs automated tests and create a docker image whenever a new commit is being done to the main branch. Also checks for pylint changes whenever a new commit is done to any of the branch in the repository. 
 
 ---
 
+## 📸 Screenshots
 
+
+---
 
 
