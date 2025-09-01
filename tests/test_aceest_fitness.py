@@ -3,6 +3,8 @@ Pytest module for testing the Flask-based ACEest Fitness Tracker app.
 Contains tests for adding, viewing, and validating workouts.
 """
 
+# pylint: disable=redefined-outer-name
+
 import pytest
 from src.app import app,tracker
 
