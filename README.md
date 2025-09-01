@@ -64,7 +64,29 @@ This project runs automated tests and create a docker image whenever a new commi
 
 ## 📸 Screenshots
 
+Below Windows pop-ups when program is successfully executed ; Due tk adaptibility issue with mac (text boxes were not showing up , but they do take up data ), below first screenshot is taken from windows env. 
+
 <img width="379" height="261" alt="image" src="https://github.com/user-attachments/assets/51b156ff-9380-4dbd-b25c-d1c7fadcdfb6" />
+
+
+After adding the workouts
+
+<img width="261" height="179" alt="Screenshot 2025-09-01 at 10 18 49" src="https://github.com/user-attachments/assets/b7d07203-c53d-4181-ae50-0937bd080186" />
+
+
+
+When clicked on view workouts
+
+<img width="256" height="211" alt="Screenshot 2025-09-01 at 10 19 02" src="https://github.com/user-attachments/assets/07b03b9d-81be-4fe2-a729-733facd93706" />
+
+
+
+If the docker/podman doesn't have display support below warning pops-up and is skipped. 
+
+```
+spuvva494@INSML-M0XYJPJ ~ % podman run --platform=linux/amd64 docker.io/pavanpuvvada66012/my-image:latest
+⚠️ No display detected. Skipping GUI startup.
+```
 
 ---
 
