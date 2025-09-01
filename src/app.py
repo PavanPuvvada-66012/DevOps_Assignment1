@@ -1,6 +1,6 @@
 # app.py
 from flask import Flask, request, jsonify, render_template
-from tracker import WorkoutTracker
+from src.tracker import WorkoutTracker
 
 app = Flask(__name__)
 tracker = WorkoutTracker()
