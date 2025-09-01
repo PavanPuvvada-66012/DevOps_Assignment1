@@ -48,4 +48,3 @@ class WorkoutTracker:
             list: List of all workout entries.
         """
         return self.workouts
-
