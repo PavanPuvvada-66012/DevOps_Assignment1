@@ -1,4 +1,4 @@
-# 📌 Intorduction to DevOps Assignment for Automated Fitness and Gym App.
+# 📌 Introduction to DevOps Assignment for Automated Fitness and Gym App.
 
 > ✨ This project aims to log workouts and their durations.
 
