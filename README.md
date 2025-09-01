@@ -40,18 +40,19 @@ pip install -r requirements.txt
 ```
 ---
 ## 🚀 Usage
-
+```
 python src/aceest_fitness.py 
-
+```
 once application is executed, a window pop-ups for entering the workout name and the duration for each workout. 
 
 
-if the system doesn't support python then docker/pull image can be downloaded. 
+if the system doesn't support python then docker/podman pull image can be downloaded. 
 
+```
 podman pull pavanpuvvada66012/my-image:latest
 
 podman run --platform=linux/amd64 docker.io/pavanpuvvada66012/my-image:latest  #On Mac as mac is arm64 architecture
-
+```
 
 ---
 ## ⚡ Features
