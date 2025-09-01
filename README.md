@@ -10,6 +10,7 @@
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Features](#-features)
+- [Screenshots](#-screenshots)
 
 ---
 ## 📌 About
