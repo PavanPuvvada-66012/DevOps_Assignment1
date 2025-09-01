@@ -62,6 +62,7 @@ This project runs automated tests and create a docker image whenever a new commi
 
 ## 📸 Screenshots
 
+<img width="379" height="261" alt="image" src="https://github.com/user-attachments/assets/51b156ff-9380-4dbd-b25c-d1c7fadcdfb6" />
 
 ---
 
