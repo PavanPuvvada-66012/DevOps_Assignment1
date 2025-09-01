@@ -1,7 +1,7 @@
 """
 This module is a test project to save workouts and their duration
 """
-
+import os
 import tkinter as tk
 from tkinter import messagebox
 
@@ -77,6 +77,10 @@ class FitnessTrackerApp: # pylint: disable=too-many-instance-attributes
         messagebox.showinfo("Workouts", workout_list)
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = FitnessTrackerApp(root)
-    root.mainloop()
+    if os.environ.get("DISPLAY", "") == "":
+        print("⚠️ No display detected. Skipping GUI startup.")
+    else:
+        root = tk.Tk()
+        app = FitnessTrackerApp(root)
+        root.mainloop()
+
