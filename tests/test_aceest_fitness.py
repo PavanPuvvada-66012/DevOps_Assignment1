@@ -1,5 +1,5 @@
 import pytest
-from app import app, tracker
+from src import app, tracker
 
 @pytest.fixture
 def client():
