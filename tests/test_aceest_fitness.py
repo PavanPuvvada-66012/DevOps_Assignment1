@@ -10,9 +10,8 @@ from src.app import app,tracker
 def client():
     """Provides a test client for the Flask app"""
     app.config["TESTING"] = True
+    tracker.workouts.clear()
     with app.test_client() as test_client:
-        # reset tracker before each test
-        tracker.workouts.clear()
         yield test_client
 
 def test_homepage_loads(client):
