@@ -1,3 +1,8 @@
+"""
+Pytest module for testing the Flask-based ACEest Fitness Tracker app.
+Contains tests for adding, viewing, and validating workouts.
+"""
+
 import pytest
 from src.app import app,tracker
 
@@ -8,7 +13,7 @@ def client():
     with app.test_client() as test_client:
         # reset tracker before each test
         tracker.workouts.clear()
-        yield client
+        yield test_client
 
 def test_homepage_loads(client):
     """Homepage should load and contain expected text"""
@@ -49,4 +54,3 @@ def test_view_workouts_with_data(client):
     assert len(data) == 1
     assert data[0]["workout"] == "Yoga"
     assert data[0]["duration"] == 45
-
