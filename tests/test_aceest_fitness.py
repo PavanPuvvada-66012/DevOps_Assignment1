@@ -20,7 +20,7 @@ def app(): # pylint: disable=redefined-outer-name
     root.destroy()
 
 
-def test_add_workout_success(app):
+def test_add_workout_success(app): # pylint: disable=redefined-outer-name
     """
     Will add a test workout 
     """
@@ -35,7 +35,7 @@ def test_add_workout_success(app):
     mock_info.assert_called_once_with("Success", "'Running' added successfully!")
 
 
-def test_add_workout_missing_fields(app):
+def test_add_workout_missing_fields(app): # pylint: disable=redefined-outer-name
     """
     Will add a test workout with empty results
     """
@@ -49,7 +49,7 @@ def test_add_workout_missing_fields(app):
     mock_error.assert_called_once_with("Error", "Please enter both workout and duration.")
 
 
-def test_add_workout_invalid_duration(app):
+def test_add_workout_invalid_duration(app): # pylint: disable=redefined-outer-name
     """
     Will add a test workout with duration in wrong format
     """
@@ -63,7 +63,7 @@ def test_add_workout_invalid_duration(app):
     mock_error.assert_called_once_with("Error", "Duration must be a number.")
 
 
-def test_view_workouts_empty(app):
+def test_view_workouts_empty(app): # pylint: disable=redefined-outer-name
     """
     Will check on empty logged workouts
     """
@@ -73,7 +73,10 @@ def test_view_workouts_empty(app):
     mock_info.assert_called_once_with("Workouts", "No workouts logged yet.")
 
 
-def test_view_workouts_with_data(app):
+def test_view_workouts_with_data(app): # pylint: disable=redefined-outer-name
+    """
+    Test to view logged workouts
+    """
     app.workouts = [
         {"workout": "Running", "duration": 30},
         {"workout": "Yoga", "duration": 45},
