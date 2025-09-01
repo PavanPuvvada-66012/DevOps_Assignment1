@@ -80,13 +80,21 @@ When clicked on view workouts
 <img width="256" height="211" alt="Screenshot 2025-09-01 at 10 19 02" src="https://github.com/user-attachments/assets/07b03b9d-81be-4fe2-a729-733facd93706" />
 
 
-
-If the docker/podman doesn't have display support below warning pops-up and is skipped. 
+Running the flask application
 
 ```
-spuvva494@INSML-M0XYJPJ ~ % podman run --platform=linux/amd64 docker.io/pavanpuvvada66012/my-image:latest
-⚠️ No display detected. Skipping GUI startup.
+spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % python -m src.app
 ```
+Application is accessible via http://127.0.0.1:5000/ 
+
+```
+spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % podman pull pavanpuvvada66012/my-image:latest
+spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % podman run -d --name aceest-container -p 5000:5000 --platform=linux/amd64  pavanpuvvada66012/my-image:latest
+bb0bf70ef86db30a8a0dc5185b804d421b4510846add0aaf067b0a0f8213251e
+```
+App is accessible from http://127.0.0.1:5000/
+
+<img width="571" height="235" alt="image" src="https://github.com/user-attachments/assets/54a8bcd5-3f44-4ef3-b114-27c439c0c05f" />
 
 
 Steps to run the py tests locally , pytest will be installed as part of the requirements
@@ -96,12 +104,16 @@ spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % pytest -v
 =========================================================================== test session starts ===========================================================================
 platform darwin -- Python 3.10.11, pytest-8.4.1, pluggy-1.6.0 -- /Users/spuvva494/.pyenv/versions/3.10.11/bin/python3.10
 cachedir: .pytest_cache
-rootdir: /Users/spuvva494/Documents/Development/DevOps_Assignment1
-collected 1 item
+rootdir: /Users/spuvva494/DevOps_Assignment1
+collected 5 items
 
-tests/test_aceest_fitness.py::test_add_workout_success PASSED                                                                                                       [100%]
+tests/test_aceest_fitness.py::test_homepage_loads PASSED                                                                                                            [ 20%]
+tests/test_aceest_fitness.py::test_add_valid_workout PASSED                                                                                                         [ 40%]
+tests/test_aceest_fitness.py::test_add_invalid_workout PASSED                                                                                                       [ 60%]
+tests/test_aceest_fitness.py::test_view_workouts_empty PASSED                                                                                                       [ 80%]
+tests/test_aceest_fitness.py::test_view_workouts_with_data PASSED                                                                                                   [100%]
 
-============================================================================ 1 passed in 0.28s ============================================================================
+============================================================================ 5 passed in 0.17s ============================================================================
 spuvva494@INSML-M0XYJPJ DevOps_Assignment1 %
 ```
 
