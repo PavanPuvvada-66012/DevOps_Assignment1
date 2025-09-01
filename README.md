@@ -38,7 +38,7 @@ venv\Scripts\activate     # On Windows
 pip install -r requirements.txt
 
 ```
-
+---
 ## 🚀 Usage
 
 python src/aceest_fitness.py 
@@ -53,9 +53,13 @@ podman pull pavanpuvvada66012/my-image:latest
 podman run -it --rm my-image:latest
 
 
+---
 ## Features
 
 This project runs automated tests and create a docker image whenever a new commit is being done to the main branch. Also checks for pylint changes whenever a new commit is done to any of the branch in the repository. 
+
+---
+
 
 
 
