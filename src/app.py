@@ -40,7 +40,7 @@ def add_workout():
         duration = int(duration)
         entry = tracker.add_workout(workout, duration)
         return jsonify({"status": "success", "workout": entry}), 201
-    except Exception as e:
+    except ValueError as e:
         return jsonify({"status": "error", "message": str(e)}), 400
 
 @app.route("/workouts", methods=["GET"])
