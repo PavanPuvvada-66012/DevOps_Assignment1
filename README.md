@@ -87,6 +87,8 @@ spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % python -m src.app
 ```
 Application is accessible via http://127.0.0.1:5000/ 
 
+# To Access application using Docker/Podman (below podman keyword can be replaced with Docker to complete the project
+
 ```
 spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % podman pull pavanpuvvada66012/my-image:latest
 spuvva494@INSML-M0XYJPJ DevOps_Assignment1 % podman run -d --name aceest-container -p 5000:5000 --platform=linux/amd64  pavanpuvvada66012/my-image:latest
