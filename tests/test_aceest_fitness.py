@@ -30,7 +30,7 @@ def test_add_invalid_workout(client):
     data = response.get_json()
     assert response.status_code == 400
     assert data["status"] == "error"
-    assert "invalid literal for int()" in data["message"]
+    assert "must be an integer" in data["message"]
 
 def test_view_workouts_empty(client):
     """Should return empty list if no workouts logged"""
