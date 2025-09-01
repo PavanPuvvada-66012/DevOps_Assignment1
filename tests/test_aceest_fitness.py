@@ -1,5 +1,5 @@
 import pytest
-from src.tracker import WorkoutTracker
+from src.tracker import app,tracker
 
 @pytest.fixture
 def client():
