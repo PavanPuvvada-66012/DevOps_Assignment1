@@ -1,52 +1,60 @@
 import pytest
-from src import app, tracker
+from src.app import app, tracker
+
 
 @pytest.fixture
 def client():
-    """Provides a test client for the Flask app"""
+    """
+    Provides a test client for the Flask app.
+    """
     app.config["TESTING"] = True
     with app.test_client() as client:
-        # reset tracker before each test
-        tracker.workouts.clear()
         yield client
 
+
 def test_homepage_loads(client):
-    """Homepage should load and contain expected text"""
+    """
+    Ensure the homepage loads successfully with the correct content.
+    """
     response = client.get("/")
     assert response.status_code == 200
-    assert b"Workout Tracker" in response.data
+    assert b"Workouts" in response.data
 
-def test_add_valid_workout(client):
-    """Should add a workout successfully via POST"""
-    response = client.post("/add", json={"workout": "Running", "duration": 30})
-    data = response.get_json()
-    assert response.status_code == 201
-    assert data["status"] == "success"
-    assert data["workout"] == {"workout": "Running", "duration": 30}
 
-def test_add_invalid_workout(client):
-    """Adding invalid workout (non-numeric duration) should fail"""
-    response = client.post("/add", json={"workout": "Cycling", "duration": "abc"})
-    data = response.get_json()
+def test_add_workout_success(client):
+    """
+    Test adding a valid workout through POST request.
+    """
+    response = client.post("/add", data={"workout": "Running", "duration": "30"}, follow_redirects=True)
+    assert response.status_code in (200,201)
+    assert any(w["workout"] == "Running" and w["duration"] == 30 for w in tracker.get_workouts())
+
+
+def test_add_workout_missing_fields(client):
+    """
+    Test when workout or duration is missing.
+    """
+    response = client.post("/add", data={"workout": "", "duration": ""}, follow_redirects=True)
     assert response.status_code == 400
-    assert data["status"] == "error"
-    assert "must be an integer" in data["message"]
 
-def test_view_workouts_empty(client):
-    """Should return empty list if no workouts logged"""
-    response = client.get("/workouts")
-    data = response.get_json()
+
+def test_add_workout_invalid_duration(client):
+    """
+    Test when duration is not a number.
+    """
+    response = client.post("/add", data={"workout": "Cycling", "duration": "abc"}, follow_redirects=True)
+    assert response.status_code == 400
+
+
+def test_view_workouts(client):
+    """
+    Test that workouts are displayed correctly after adding.
+    """
+    tracker.workouts.clear()  # reset state before testing
+    tracker.add_workout("Yoga", 45)
+    tracker.add_workout("Swimming", 60)
+
+    response = client.get("/")
     assert response.status_code == 200
-    assert data == []
-
-def test_view_workouts_with_data(client):
-    """Should return workouts if added previously"""
-    # Add one workout
-    client.post("/add", json={"workout": "Yoga", "duration": 45})
-    response = client.get("/workouts")
-    data = response.get_json()
-    assert response.status_code == 200
-    assert len(data) == 1
-    assert data[0]["workout"] == "Yoga"
-    assert data[0]["duration"] == 45
-
+    assert b"Yoga" in response.data
+    assert b"Swimming" in response.data
